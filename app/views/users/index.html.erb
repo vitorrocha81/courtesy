@@ -1,3 +1,5 @@
+<%= @total_users %> usuários cadastrados, aproveite e <%= link_to 'Cadastre-se', new_user_path %>  para concorrer também!! <br>
+
 <% @users.all.each do |user| %>
 	Nome:<%= user.name %>
 <% end %>

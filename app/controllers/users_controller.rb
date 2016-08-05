@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
-	before_action :load_user, except:[:index]
+	before_action :load_user, only:[:show]
   
   def index
   	@users = User.all
+  	@total_users = User.all.count
   end
 
   def show
@@ -14,8 +15,8 @@ class UsersController < ApplicationController
 
   def create
   	@user = User.create(user_params)
-  		if @client.save
-  			redirect_to @client
+  		if @user.save
+  			redirect_to @user
   		else
   		render 'new'
   		end	
@@ -32,3 +33,4 @@ class UsersController < ApplicationController
   	params.require(:user).permit(:name, :email, :phone, :company, :position)
   	
   end
+end
