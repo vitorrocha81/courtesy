@@ -27,7 +27,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 #
 # =>  GEMS INSTALADAS PARA O PROJETO
 #
+# Formulários e Nested Forms
 gem 'simple_form'
+
+#Bootstrap 
+gem 'bootstrap-sass', '~> 3.3.6'
+
+gem "font-awesome-rails"
 
 
 # Use ActiveModel has_secure_password
