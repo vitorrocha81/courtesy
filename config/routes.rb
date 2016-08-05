@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
  
 
-resources :users, only:[:index, :new, :show] do 
+resources :users,  except:[:edit, :delete] do 
  resources :friends, except:[:edit, :delete]
 end
 

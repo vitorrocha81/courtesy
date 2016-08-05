@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+
 	before_action :load_user, only:[:show]
   
   def index
@@ -16,6 +18,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.create(user_params)
   		if @user.save
+        CourtesyMail.user_email(@user).deliver
   			redirect_to @user
   		else
   		render 'new'
