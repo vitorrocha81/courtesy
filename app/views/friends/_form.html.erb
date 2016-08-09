@@ -1,12 +1,20 @@
-<div class="container">
-	<%= simple_form_for [@user, @friend] do |f| %>
-	<% f.association :user %>
-	<%= f.input :name, label: "Nome", placeholder: 'Nome' %>
-	<%= f.input :email, label: "E-mail", placeholder: 'E-mail' %>
+<br>
+<div class="panel panel-primary">
+	<div class="panel-heading text-uppercase">
+	<p>Olá <%= @user.name.split.first %>! Obrigado por se cadastrar, indique amigos para concorrer também!</p>
+	</div>	
 	
-	<div class="actions">
-		<%= f.button :submit, 'Indicar', class: "btn btn-default" %>
+	<div class="panel-body">
+	<%= form_for ([@user, @user.friends.build]) do |f| %>
+	<%= f.text_field :name, label: "Nome", placeholder: 'Nome', class: 'col-md-12' %>
+	<%= f.text_field :email, label: "E-mail", placeholder: 'E-mail',  class: 'col-md-12' %>
 	</div>
+
+	<div class="panel-footer">
+		<div class="actions">
+		<%= f.button "Indicar amigo" %>
+		</div>
+	</div>
+
 	<% end %>
 </div>
-

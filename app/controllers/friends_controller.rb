@@ -1,25 +1,17 @@
 class FriendsController < ApplicationController
-  def index
-  	@user = User.find(params[:user_id])
-  	@friends = @user.friends
-  end
-
-  def new
-  	@user = User.find(params[:user_id])
-  	@friend = @user.friends.new
-  end
-
-  def show
-  end
+  before_action :set_user
 
   def create
-  	@user = User.find(params[:user_id])
 		@friend = @user.friends.create(friend_params)
 		if @friend.save
-			redirect_to user_friends_path
-		else
+			redirect_to @user
+    else
 		render 'new'
 		end	
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
   end
 
   def friend_params

@@ -1,10 +1,4 @@
 <div class="container">
-	<div class="list-group">
-	  <ul class="list-unstyled list-inline text-uppercase">
-	    <li><%= link_to "Cadastre-se", new_user_path, class: 'btn btn-info'  %> </li>
-	    <li>Olá <%= @user.name.split.first %>! <%= link_to "Indique amigos para concorrer", new_user_friend_path(@user),  class: 'text text-info'  %> </li>
-	  </ul>
-	</div>
 
 <p id="notice"><%= notice %></p>
 
@@ -13,19 +7,32 @@
 	  <div class="col-md-12 list-group-item list-group-item"> <strong> Email: </strong> <%= @user.email  %> </div>
 	  <div class="col-md-6 list-group-item list-group-item"> <strong>  Indicações: </strong> <%= @user.friends.count  %> </div>
 	  <div class="col-md-6 list-group-item list-group-item"> <strong>  Empresa: </strong> <%= @user.company  %> </div>
-	</div>
 
+	</div>
+	
+	
 	<div class="col-md-12">
 		<% if @user.friends.blank? %>
 			<h2> Não tem indicações</h2>
-		<% else %>
-			<p class="text text-default">Amigos indicados:</p>
-			<% @user.friends.each do |friend| %>
-			<div class="row list-group">
-			<div class="col-md-12 list-group-item">Nome: <%= friend.name %> </div>
-			<div class="col-md-12 list-group-item">Email: <%= friend.email %> </div>
+			<div class="form">
+				<%= render 'friends/form' %>
 			</div>
-			<% end %>
+		<% else %>
+			<div class="friends_wrapper">
+				<div class="form">
+				<%= render 'friends/form' %>
+				</div>
+			</div>
+
+			<div class="col-md-12">
+				<p class="text text-info"><strong>Amigos indicados:</strong></p>
+				<% @user.friends.order("created_at DESC").each do |friend| %>
+					<div class="list-group">
+					<div class="list-group-item list-group-item-info">Nome: <%= friend.name %> </div>
+					<div class="list-group-item list-group-item-info">Email: <%= friend.email %> </div>
+					</div>
+				<% end %>
+			</div>
 	<% end %>
 	</div>
 </div>
