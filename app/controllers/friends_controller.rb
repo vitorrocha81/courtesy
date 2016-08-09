@@ -4,6 +4,9 @@ class FriendsController < ApplicationController
   def create
 		@friend = @user.friends.create(friend_params)
 		if @friend.save
+      # Quando cria a indicação ao amigo com essa linha, ele redireciona para /friends e não deveria
+      # no controler está enviando para o @user caso tenha sucesso.
+      # CourtesyMail.friend_email(@user, @friend).deliver
 			redirect_to @user
     else
 		render 'new'

@@ -1,9 +1,28 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :name %>
-  <%= f.input :email %>
-  <%= f.input :phone %>
-  <%= f.input :company %>
-  <%= f.input :position %>
 
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+<div class="row">
+              <div class="col-sm-10 col-md-10 col-lg-10 col-md-offset-1 col-lg-offset-1 col-sm-offser-1">
+                  <h1 class="page-header"></h1>
+                  <div class="panel panel-primary">
+                      <div class="panel-heading">Cadastro usuário</div>
+                      <div class="panel-body">
+						<%= simple_form_for @user do |f| %>
+						<%= f.input :name %>
+						<%= f.input :email %>
+						<%= f.input :phone %>
+						<%= f.input :company %>
+						<%= f.input :position %>
+
+						</div>	
+
+						<div class="panel-footer">
+							
+
+						<%= f.button :submit %>
+
+						</div>
+						<% end %>
+                      </div>
+                  </div>
+              </div>
+          </div>

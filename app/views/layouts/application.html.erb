@@ -7,6 +7,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+<h1 class="text text-primary">Cadastre-se <small>e concorra aos principais eventos do grupo iMasters!</small></h1>
+	<div class="row">
+	<div class="col-md-5"><a href="http://intercon.imasters.com.br/" target="_blank"><%= image_tag 'internet_con.png', height: '60px' %></a></div>
+	<div class="col-md-3"><a href="http://devcommerce2016.imasters.com.br/" target="_blank"><%= image_tag 'dev_commerce.png', width: '140PX' %></a></div>
+	<div class="col-md-3"><a href="http://phpexperience2016.imasters.com.br/" target="_blank"><%= image_tag 'php_experience.png', height: '60px' %></a></div>
+	</div>
+</div>
 
 <%= yield %>
 
